@@ -1,7 +1,7 @@
 ﻿/****************************** Giriş: Değişkenler ve Dönüşümler ******************************/
 
 Console.WriteLine("Hello, World!"); // write sadece yazar, writeline yazar ve satır atlar.
-Console.ReadKey(); // program VS içinden çalıştırıldığında bir problem yok fakat
+//Console.ReadKey(); // program VS içinden çalıştırıldığında bir problem yok fakat
 // .exe dosyası çalıştırılacaksa, iş bitince kapanmaması için ReadKey() eklenir.
 /// \DotNetTemelleri\1.Project\bin\Debug\net6.0\1.Project.exe
 
@@ -34,7 +34,7 @@ bool tf = bool.Parse("false"); // boolen değer olan False 'e çevirir.
 string sayiToString = sayiToInt.ToString();
 
 Console.WriteLine(sayiString + 3, sayiToInt + 3, sayiParse + 3, sayiToString + 3); // 543, 57
-Console.ReadKey();
+//Console.ReadKey();
 
 int integerSayi = 54;
 string stringSayi = "54";
@@ -45,6 +45,7 @@ Console.WriteLine(stringSayi + 3); // 3 sayısı otomatik olarak stringe çeviri
 
 
 int secim;
+Console.WriteLine("Girilen karakter sayı mı...");
 string secimStr = Console.ReadLine();
 bool girdi = int.TryParse(secimStr, out secim);
 // secimStr dönüştürülmek istenen değer, eğer dönüşebilirse onu "out" ile belirtilen değere atar.
@@ -74,7 +75,8 @@ string strSayi2 = Console.ReadLine();
 int bolen = int.Parse(strSayi2);
 
 
-/****************************** Döngüler ******************************/
+
+/****************************** Koşullar ******************************/
 
 int sc = 2;
 switch (sc)
@@ -90,6 +92,7 @@ switch (sc)
         Console.WriteLine("sayı bilinmiyor.");
         break;
 }
+
 
 
 /****************************** Debugging ******************************/
@@ -114,6 +117,8 @@ finally
     Console.WriteLine("Burası her halükarda çalışır");
 }
 
+
+
 /****************************** Diziler ******************************/
 
 string[] strDizi = new string[2]; // 2 elemanlı string bir dizi tanımlama.
@@ -121,6 +126,8 @@ strDizi[0] = "abc";
 strDizi[1] = "cba";
 
 int[] sayilar = new int[3] { 1, 2, 3 }; // ilk oluşturmada bu şekilde tanımlanabilir.
+int[] sayilarr = new int[] { 1, 2, 3 }; // bu şekil tanımlamada boyut vermen şart değil
+int[] sayilarrr = { 1, 2, 3 }; // hatta böyle bile tanımlanabiliyor.
 
 int[] sayilar2 = (int[])sayilar.Clone(); // Clone metodu nesne döner. (int[]) ile casting ettik.
 
@@ -140,6 +147,101 @@ sayilar[sayilar.Length - 1] = 4; // index 0'dan başlar. (son karakter length-1)
 int index = Array.IndexOf(strDizi, "abc"); // 0 döner. (0. indexte)
 int index2 = Array.IndexOf(strDizi, "bca"); // bulamadığı veri -1 döner.
 
+/*** Çok Boyutlu Diziler ***/
+string[,] regions = new string[4, 3] // 4 satır, her biri 3 sütunlu.
+{
+    {"Sakarya", "İstanbul", "Bursa" },
+    {"Ankara", "Konya", "Sivas" },
+    {"", "", "" },  // ...
+    {"", "", "" }
+}; // bu şekilde tanımlanabilir.
+
+
+
+/****************************** Döngüler ******************************/
+
+/// Bunları dönmek için
+for (int i = 0; i <= regions.GetUpperBound(0); i++) // GetUpperBound(0) satırları döner,
+    for (int j = 0; j < regions.GetUpperBound(1); j++) // GetUpperBound(1) sütunları.
+        Console.WriteLine(regions[i, j]);
+
+/*** ForEach **/
+foreach (var sayi in sayilarr)
+{
+    Console.WriteLine(sayi);
+}
+
+
+
+/****************************** String ******************************/
+
+// Stringler aslında char dizileridir.
+string cumle = "Bu bir char dizisi stringdir.";
+Console.WriteLine(cumle[0]); // B yazar.
+
+
+/***** String Metodlar *****/
+
+string str = "Bu cümle düzenlenecek. ";
+Console.WriteLine("-" + str + "-");
+
+// Trim -- baştaki ve sondaki fazlalık boşlukları siler.
+Console.WriteLine("-" + str.Trim() + "-");
+
+// SubString
+Console.WriteLine("-" + str.Substring(3, 5) + "-");
+// 3. indexten itibaren 5 haneli substring.
+
+// Reverse
+char[] chars = str.ToCharArray();       // önce her bir karakteri bölüp diziye attık
+Array.Reverse(chars);                   // sonra ters çevirdik
+string reversed = new string(chars);    // son olarak char dizisini string değişkenine atınca kendiliğinden birleşmiş oldu.
+Console.WriteLine("-" + reversed + "-");
+
+// IndexOf
+Console.WriteLine("-" + str.IndexOf('ü') + "-");    // ilk bulduğunun indexini döner. - 4
+// sonrakileri de bulmak istersen paranteze bi virgül atar, bulunan index+1 'den itibaren aratmaya devam edersin.
+// Console.WriteLine("-" + str.IndexOf('ü', ilkbulunan+1) + "-"); // tabi bunun için ilk bulunanı bir değişkene atmak gerek.
+Console.WriteLine("-" + str.IndexOf("cümle") + "-"); // girilen değerin başlangıç indexini döner. - 3
+Console.WriteLine("-" + str.LastIndexOf("i") + "-"); // aramaya sondan başlar, sondaki ilk değerin indexini döner.
+// değer bulunamazsa IndexOf -1 döner.
+
+// Remove
+string removed = str.Remove(2, 6); // 2. indexten itibaren 6 karakter siler. (2. değer verilmezse en sona kadar siler.)
+Console.WriteLine("-" + removed + "-");
+
+// Contains
+Console.WriteLine(str.Contains("cümle")); // true döner.
+
+// Replace
+string replaced = str.Replace("bu", "şu");
+Console.WriteLine("-" + replaced + "-");
+// string replaced = str.Replace(" ", ""); // Replace metodu boşlukları silmek için de kullanılabilir.
+
+// Split
+string[] splitted = str.Split(' '); // boşlukları referans alarak bölüp diziye atar, yani tüm kelimeleri.
+Console.WriteLine("-" + string.Join(' ', splitted) + "-"); // kelime dizisini aralarına boşluk koyarak birleştirip bir string ifadeye çevirdi.
+
+// Format
+string city1 = "Sakarya";
+string city2 = "Adapazarı";
+Console.WriteLine(String.Format("{0} {1}", city1, city2));
+// {0} {1} arasında boşluk bırakarak formatladık, ekrana yazarken arada boşluklu yazacak.
+
+// EndsWith StartsWith
+string isim = "Emirhan Ç.";
+bool result1 = isim.EndsWith("i"); // false, . ile bitiyor.
+bool result2 = isim.StartsWith("Emirhan Ç"); // ile başlıyor. True
+
+// Insert
+var hello = isim.Insert(0, "Hello, "); // 0. indexten itibaren verilen değeri ekler.
+
+// Clone
+string kelime = "abcd";
+var kelime2 = kelime.Clone(); // referans verisi kopyalandığı için string tipinde değişken oluşturamazsın.
+kelime = "qwerty";
+Console.WriteLine(kelime2); // "abcd"
+
 
 
 /****************************** Metodlar ******************************/
@@ -157,6 +259,7 @@ int toplam2 = Topla(1, 4, 5); // 10
 // bir parametreye varsayılan değer atanması, o değerin opsiyonel olduğunu ifade eder.
 // eğer o parametreye değer gönderilirse override eder, gönderilmezse default değer neyse onu kullanır.
 // dipnot: opsiyonel (varsayılan değerli) parametreler sona yazılır, yoksa hata verir.
+
 static int Topla(int say1, int say2, int say3 = 0) // int değer döndüren bir metod.
 {
     return say1 + say2 + say3;
@@ -173,11 +276,12 @@ static int Topla(int say1, int say2, int say3, int say4) // imzaları farklı, a
 
 /// kaç parametre girileceği belli olmadığı durumda sonsuz overload metod yazmak imkansız ve gereksiz.
 /// bu durumda devreye params giriyor:
-/*** Params ***/
 
+/*** Params ***/
 int toplam3 = Topla2(0, sayilar2); // params kullanılmadan dizi metoduna sadece dizi gönderebilirsin.
 int toplam4 = Topla2(3, 5, 7, 8, 9); // params metodu kullandıldığında istediğin boyutta sayıyı gönderebilirsin.
 // params esneklik sağlar, gönderdiğin değerleri dizi olarak alır ve döngüye tabi tutularak işlemler gerçekleşir.
+
 static int Topla2(int sayi, params int[] sayilar) // eğer params harici başa parametre de alacaksa, params en sonda olmalı.
 {                                                 // ve params 1 metodda sadece 1 adet olabilir.
     int toplam = 0;
@@ -216,47 +320,6 @@ static int Topla4(out int say1, int say2)
     return say1 + say2; // 40
 }
 Console.WriteLine(refSay1);
-
-
-/***** String Metodlar *****/
-
-string str = "Bu cümle düzenlenecek. ";
-Console.WriteLine("-" + str + "-");
-
-// Trim -- baştaki ve sondaki fazlalık boşlukları siler.
-Console.WriteLine("-" + str.Trim() + "-");
-
-// SubString
-Console.WriteLine("-" + str.Substring(3, 5) + "-");
-// 3. indexten itibaren 5 haneli substring.
-
-// Reverse
-char[] chars = str.ToCharArray();       // önce her bir karakteri bölüp diziye attık
-Array.Reverse(chars);                   // sonra ters çevirdik
-string reversed = new string(chars);    // son olarak char dizisini string değişkenine atınca kendiliğinden birleşmiş oldu.
-Console.WriteLine("-" + reversed + "-");
-
-// IndexOf
-Console.WriteLine("-" + str.IndexOf('ü') + "-");    // ilk bulduğunun indexini döner. - 4
-// sonrakileri de bulmak istersen paranteze bi virgül atar, bulunan index+1 'den itibaren aratmaya devam edersin.
-// Console.WriteLine("-" + str.IndexOf('ü', ilkbulunan+1) + "-"); // tabi bunun için ilk bulunanı bir değişkene atmak gerek.
-Console.WriteLine("-" + str.IndexOf("cümle") + "-"); // girilen değerin başlangıç indexini döner. - 3
-
-// Remove
-string removed = str.Remove(2, 6); // 2. indexten itibaren 6 karakter siler.
-Console.WriteLine("-" + removed + "-");
-
-// Contains
-Console.WriteLine(str.Contains("cümle")); // true döner.
-
-// Replace
-string replaced = str.Replace("bu", "şu");
-Console.WriteLine("-" + replaced + "-");
-// string replaced = str.Replace(" ", ""); // Replace metodu boşlukları silmek için de kullanılabilir.
-
-// Split
-string[] splitted = str.Split(' '); // boşlukları referans alarak bölüp diziye atar, yani tüm kelimeleri.
-Console.WriteLine("-" + string.Join(' ', splitted) + "-"); // kelime dizisini aralarına boşluk koyarak birleştirip bir string ifadeye çevirdi.
 
 
 /***** Math Metodları *****/
