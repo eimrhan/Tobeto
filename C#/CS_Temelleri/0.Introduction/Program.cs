@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Hello, World!"); // write sadece yazar, writeline yazar ve satır atlar.
+﻿/****************************** Giriş: Değişkenler ve Dönüşümler ******************************/
+
+Console.WriteLine("Hello, World!"); // write sadece yazar, writeline yazar ve satır atlar.
 Console.ReadKey(); // program VS içinden çalıştırıldığında bir problem yok fakat
 // .exe dosyası çalıştırılacaksa, iş bitince kapanmaması için ReadKey() eklenir.
 /// \DotNetTemelleri\1.Project\bin\Debug\net6.0\1.Project.exe
@@ -72,6 +74,8 @@ string strSayi2 = Console.ReadLine();
 int bolen = int.Parse(strSayi2);
 
 
+/****************************** Döngüler ******************************/
+
 int sc = 2;
 switch (sc)
 {
@@ -87,6 +91,8 @@ switch (sc)
         break;
 }
 
+
+/****************************** Debugging ******************************/
 
 try
 {
@@ -108,6 +114,7 @@ finally
     Console.WriteLine("Burası her halükarda çalışır");
 }
 
+/****************************** Diziler ******************************/
 
 string[] strDizi = new string[2]; // 2 elemanlı string bir dizi tanımlama.
 strDizi[0] = "abc";
@@ -133,6 +140,10 @@ sayilar[sayilar.Length - 1] = 4; // index 0'dan başlar. (son karakter length-1)
 int index = Array.IndexOf(strDizi, "abc"); // 0 döner. (0. indexte)
 int index2 = Array.IndexOf(strDizi, "bca"); // bulamadığı veri -1 döner.
 
+
+
+/****************************** Metodlar ******************************/
+
 static void DiziyiEkranaYaz(int[] dizi) // void tipli metodlar geriye değer döndürmez.
 {
     foreach (int i in dizi)
@@ -141,14 +152,28 @@ static void DiziyiEkranaYaz(int[] dizi) // void tipli metodlar geriye değer dö
 
 int toplam1 = Topla(2, 4); // 6 - son değer opsiyonel (varsayılan değeri atanmış) olduğu için hata vermedi.
 int toplam2 = Topla(1, 4, 5); // 10
+// int toplam22 = Topla(2, 4, 6, 8); // bu sefer overload edildi, 4 parametre alan fonksiyonu çağırır.
 
 // bir parametreye varsayılan değer atanması, o değerin opsiyonel olduğunu ifade eder.
 // eğer o parametreye değer gönderilirse override eder, gönderilmezse default değer neyse onu kullanır.
 // dipnot: opsiyonel (varsayılan değerli) parametreler sona yazılır, yoksa hata verir.
 static int Topla(int say1, int say2, int say3 = 0) // int değer döndüren bir metod.
 {
-    return say1 + say2;
+    return say1 + say2 + say3;
 }
+
+/*** Overloading ***/
+/*
+static int Topla(int say1, int say2, int say3, int say4) // imzaları farklı, aynı isimle metod tanımlanabilir.
+{
+    return say1 + say2 + say3 + say4;
+}
+// normalde bu şekilde overload edilebiliyor fakat .net core 7.0'da hata verdi, değişmiş olabilir. gerekirse bakılır.
+*/
+
+/// kaç parametre girileceği belli olmadığı durumda sonsuz overload metod yazmak imkansız ve gereksiz.
+/// bu durumda devreye params giriyor:
+/*** Params ***/
 
 int toplam3 = Topla2(0, sayilar2); // params kullanılmadan dizi metoduna sadece dizi gönderebilirsin.
 int toplam4 = Topla2(3, 5, 7, 8, 9); // params metodu kullandıldığında istediğin boyutta sayıyı gönderebilirsin.
@@ -158,12 +183,42 @@ static int Topla2(int sayi, params int[] sayilar) // eğer params harici başa p
     int toplam = 0;
     foreach (int i in sayilar)
         toplam += i;
-    return toplam + sayi;
+    return sayi + toplam;
+
+    // ya da
+    // sayi + sayilar.Sum();
 }
 
 
+/*** Ref Keywordu: ***/
+int refSay1 = 10;
+int refSay2 = 20;
 
-/* String Metodlar */
+Topla3(ref refSay1, refSay2);
+static int Topla3(ref int say1, int say2)
+{
+    say1 = 30;
+    return say1+say2; // 40
+}
+Console.WriteLine(refSay1); // normalde farklı scope üzerinde değişim yapıldığı için global scope'a etki etmemesi lazım fakat
+// ref keywordu ile gönderdiğimiz için global scope değeri de değişti refSay1 değeri 30 oldu.
+
+/*** Out Farkı: **/
+/* ref'te değişkenin değeri başta başta verilmiş olmalı, out'da böyle bir zorunluluk yok.
+    fark 2: out'ta o değikeni parametre olarak gönderdiğin yerde değiştirmek zorundasın. */
+int outSay1;
+int outSay2 = 20;
+
+Topla4(out outSay1, outSay2);
+static int Topla4(out int say1, int say2)
+{
+    say1 = 30;  // bu değişimi ref'te yapmak zorunlu olmamasına karşın out'ta zorunlu.
+    return say1 + say2; // 40
+}
+Console.WriteLine(refSay1);
+
+
+/***** String Metodlar *****/
 
 string str = "Bu cümle düzenlenecek. ";
 Console.WriteLine("-" + str + "-");
@@ -204,7 +259,7 @@ string[] splitted = str.Split(' '); // boşlukları referans alarak bölüp dizi
 Console.WriteLine("-" + string.Join(' ', splitted) + "-"); // kelime dizisini aralarına boşluk koyarak birleştirip bir string ifadeye çevirdi.
 
 
-/* Math Metodları */
+/***** Math Metodları *****/
 
 double val = 3.46;
 
@@ -213,7 +268,7 @@ Console.WriteLine(Math.Round(val, 1)); // virgülden sonra kaç hane sonra yuvar
 // Floor aşağı, Ceiling yukarı yuvarlar. (küsürat ne olursa olsun)
 
 
-/* DateTime Metodları */
+/*** DateTime Metodları ***/
 
 Console.WriteLine(DateTime.Now); // şimdiyi verir.
 Console.WriteLine(DateTime.Now.Day); // bugünü verir.
