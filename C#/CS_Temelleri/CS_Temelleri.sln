@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ders1_SuperSayi", "Ders1_Su
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ders1_AsalSayilar", "Ders1_AsalSayilar\Ders1_AsalSayilar.csproj", "{CBC00109-8C6A-4481-A124-E2DF730276C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example1_KosullarlaCalismak", "Example1_KosullarlaCalismak\Example1_KosullarlaCalismak.csproj", "{EEB1E045-C0FD-483C-9C3E-09A1370A7E0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders2_SayisalLoto", "Ders2_SayisalLoto\Ders2_SayisalLoto.csproj", "{E296FAA6-EC63-4F51-914E-D7551493DFB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{CBC00109-8C6A-4481-A124-E2DF730276C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBC00109-8C6A-4481-A124-E2DF730276C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBC00109-8C6A-4481-A124-E2DF730276C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EEB1E045-C0FD-483C-9C3E-09A1370A7E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEB1E045-C0FD-483C-9C3E-09A1370A7E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEB1E045-C0FD-483C-9C3E-09A1370A7E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEB1E045-C0FD-483C-9C3E-09A1370A7E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E296FAA6-EC63-4F51-914E-D7551493DFB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E296FAA6-EC63-4F51-914E-D7551493DFB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E296FAA6-EC63-4F51-914E-D7551493DFB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E296FAA6-EC63-4F51-914E-D7551493DFB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
