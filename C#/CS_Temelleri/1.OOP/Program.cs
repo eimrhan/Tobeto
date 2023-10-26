@@ -36,7 +36,20 @@ Teacher teacher = new Teacher
 manager.Add(teacher);
 // interface kullandığım için ikisinin de verilerini Add methoduna gönderebildim.
 
-/*** ***/
+
+/*** Polymorphism ***/
+
 StudentManager studentManager = new StudentManager();
 studentManager.Add(new SqlServerStudentDal());
 
+// ayrıca ikisini (veya daha çoğunu) aynı anda da kullanabiliriz: 
+IStudentDal[] studentDals = new IStudentDal[2]
+{
+    new SqlServerStudentDal(),
+    new OracleStudentDal()
+};
+
+foreach (var studentDal in studentDals)
+{
+    studentDal.Add();
+}
