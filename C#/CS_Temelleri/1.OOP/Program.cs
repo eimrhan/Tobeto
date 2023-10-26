@@ -1,10 +1,15 @@
 ﻿using _1.OOP;
 
+
 /****************************** Classlar ******************************/
+
+/* ::::: FirstClass.cs ::::: */
 
 FirstClass firstClass = new FirstClass(); // class'ın bir örneğini oluşturuyoruz.
 firstClass.Add(); // class'ın içindeki fonksiyonlara erişebildik.
 firstClass.Remove();
+
+/* ::::: Customer.cs ::::: */
 
 // Class içerisinde tanımladığımız propslara 2 şekilde erişebiliriz:
 Customer customer1 = new Customer();
@@ -19,9 +24,12 @@ Customer customer2 = new Customer
     Name = "Engin",
     City = "İstanbul"
 };
+// ------------------------------------------------------------------ //
 
 
 /****************************** Interface ******************************/
+
+/* ::::: Interfaces.cs ::::: */
 
 PersonManager manager = new PersonManager();
 
@@ -36,8 +44,12 @@ Teacher teacher = new Teacher
 manager.Add(teacher);
 // interface kullandığım için ikisinin de verilerini Add methoduna gönderebildim.
 
+// ------------------------------------------------------------------ //
+
 
 /*** Polymorphism ***/
+
+/* ::::: IStudentDal.cs ::::: */
 
 StudentManager studentManager = new StudentManager();
 studentManager.Add(new SqlServerStudentDal());
@@ -48,8 +60,35 @@ IStudentDal[] studentDals = new IStudentDal[2]
     new SqlServerStudentDal(),
     new OracleStudentDal()
 };
-
 foreach (var studentDal in studentDals)
 {
     studentDal.Add();
 }
+// ------------------------------------------------------------------ //
+
+
+/*** Çoklu İmplementasyon ***/
+
+/* ::::: IWorker.cs ::::: */
+
+IWorker[] workers = new IWorker[3]
+{
+    new Manager(),
+    new Worker(),
+    new Robot()
+};
+foreach (var worker in workers)
+{
+    worker.Work();
+}
+
+IEat[] eats = new IEat[2]
+{
+    new Manager(),
+    new Worker()
+};
+foreach (var eat in eats)
+{
+    eat.Eat();
+}
+// ------------------------------------------------------------------ //
