@@ -92,3 +92,22 @@ foreach (var eat in eats)
     eat.Eat();
 }
 // ------------------------------------------------------------------ //
+
+
+
+/****************************** Inheritance (Kalıtım) ******************************/
+
+/* ::::: Inheritance.cs ::::: */
+
+// Seller seller = new Seller();
+Person[] persons = new Person[3]
+{
+    new Seller(),
+    new Buyer(),
+    new Person
+    {
+        Name = "Emirhan"
+    }
+    // Interface'ler Soyuttur, tek başına kullanılamaz. Fakat Inheritance tanımını (Person()) burada kullanabildik.
+};
+// ------------------------------------------------------------------ //
