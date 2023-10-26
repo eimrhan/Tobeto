@@ -26,9 +26,7 @@ Customer customer2 = new Customer
 PersonManager manager = new PersonManager();
 
 manager.Add(new Student { Id = 1, Name = "IEmirhan" });
-
 // 2 farklı kullanımı tekrar görmüş olalım: ↑ ↓
-
 Teacher teacher = new Teacher
 {
     Id = 1,
@@ -36,5 +34,9 @@ Teacher teacher = new Teacher
     Address = "İstanbul Kodluyor"
 };
 manager.Add(teacher);
-
 // interface kullandığım için ikisinin de verilerini Add methoduna gönderebildim.
+
+/*** ***/
+StudentManager studentManager = new StudentManager();
+studentManager.Add(new SqlServerStudentDal());
+
