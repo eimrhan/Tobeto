@@ -8,9 +8,13 @@ namespace _1.OOP
 {
     internal class FirstClass
     {
-        public void newClass()
+        public void Add()
         {
-            Console.WriteLine("yeni bir class sayfası oluşturuldu.");
+            Console.WriteLine("added");
+        }
+        public void Remove()
+        {
+            Console.WriteLine("removed");
         }
     }
 }

@@ -1,13 +1,10 @@
-﻿/****************************** Classlar ******************************/
+﻿using _1.OOP;
 
-using _1.OOP;
+/****************************** Classlar ******************************/
 
-MyClass myClass = new MyClass(); // class'ın bir örneğini oluşturuyoruz.
-myClass.Add(); // class'ın içindeki fonksiyonlara erişebildik.
-myClass.Remove();
-
-FirstClass firstClass = new FirstClass(); // classları harici sayfalarda da oluşturabiliriz.
-firstClass.newClass(); // yine aynı şekilde erişiyoruz.
+FirstClass firstClass = new FirstClass(); // class'ın bir örneğini oluşturuyoruz.
+firstClass.Add(); // class'ın içindeki fonksiyonlara erişebildik.
+firstClass.Remove();
 
 // Class içerisinde tanımladığımız propslara 2 şekilde erişebiliriz:
 Customer customer1 = new Customer();
@@ -24,14 +21,20 @@ Customer customer2 = new Customer
 };
 
 
-class MyClass
+/****************************** Interface ******************************/
+
+PersonManager manager = new PersonManager();
+
+manager.Add(new Student { Id = 1, Name = "IEmirhan" });
+
+// 2 farklı kullanımı tekrar görmüş olalım: ↑ ↓
+
+Teacher teacher = new Teacher
 {
-    public void Add()
-    {
-        Console.WriteLine("added");
-    }
-    public void Remove()
-    {
-        Console.WriteLine("removed");
-    }
-}
+    Id = 1,
+    Name = "IEngin",
+    Address = "İstanbul Kodluyor"
+};
+manager.Add(teacher);
+
+// interface kullandığım için ikisinin de verilerini Add methoduna gönderebildim.
