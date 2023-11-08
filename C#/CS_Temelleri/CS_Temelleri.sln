@@ -19,17 +19,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.OOP", "1.OOP\1.OOP.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project2_DamaTahtasi", "Project2_DamaTahtasi\Project2_DamaTahtasi.csproj", "{9B9E33BC-5AFB-4EB4-A08E-0430CB3D5ED5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders3_SuperSayi_v2", "Ders3_SuperSayi_v2\Ders3_SuperSayi_v2.csproj", "{AE057398-55D4-4706-B3E9-AF1CA85392D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ders3_SuperSayi_v2", "Ders3_SuperSayi_v2\Ders3_SuperSayi_v2.csproj", "{AE057398-55D4-4706-B3E9-AF1CA85392D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders3_ArmstrongSayi", "Ders3_ArmstrongSayi\Ders3_ArmstrongSayi.csproj", "{C0910CD1-1C6C-41F0-BEB1-E2B60383BA81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ders3_ArmstrongSayi", "Ders3_ArmstrongSayi\Ders3_ArmstrongSayi.csproj", "{C0910CD1-1C6C-41F0-BEB1-E2B60383BA81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders3_Fibonacci", "Ders3_Fibonacci\Ders3_Fibonacci.csproj", "{BEB66A8B-B743-4FCD-8294-137B737E65C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ders3_Fibonacci", "Ders3_Fibonacci\Ders3_Fibonacci.csproj", "{BEB66A8B-B743-4FCD-8294-137B737E65C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders3_KacKarakter", "Ders3_KacKarakter\Ders3_KacKarakter.csproj", "{E4F0E137-7153-4219-BD39-C9F3300EB42B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ders3_KacKarakter", "Ders3_KacKarakter\Ders3_KacKarakter.csproj", "{E4F0E137-7153-4219-BD39-C9F3300EB42B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders3_Anagram", "Ders3_Anagram\Ders3_Anagram.csproj", "{B640B0D2-9E80-48DC-96A2-3833D515102B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ders3_Anagram", "Ders3_Anagram\Ders3_Anagram.csproj", "{B640B0D2-9E80-48DC-96A2-3833D515102B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders3_ArkadasSayilar_v2", "Ders3_ArkadasSayilar_v2\Ders3_ArkadasSayilar_v2.csproj", "{47368A7B-2234-414A-99BE-4C9335929BEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ders3_ArkadasSayilar_v2", "Ders3_ArkadasSayilar_v2\Ders3_ArkadasSayilar_v2.csproj", "{47368A7B-2234-414A-99BE-4C9335929BEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders8_CoursesExample", "Ders8_CoursesExample\Ders8_CoursesExample.csproj", "{13336885-65AB-48F7-B9E5-38979FB397FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2_OOP2", "2.OOP2\2_OOP2.csproj", "{0FD145B3-29F9-44B2-915E-9FCED979FD95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders8_Matematik", "Ders8_Matematik\Ders8_Matematik.csproj", "{3B8AD87C-D603-4373-AEB9-44996B9FF7CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders8_DegerVeReferansTipler", "Ders8_DegerVeReferansTipler\Ders8_DegerVeReferansTipler.csproj", "{B5BD2529-F5E4-4D7B-94AE-2A08DF9CDE35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +101,22 @@ Global
 		{47368A7B-2234-414A-99BE-4C9335929BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47368A7B-2234-414A-99BE-4C9335929BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47368A7B-2234-414A-99BE-4C9335929BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13336885-65AB-48F7-B9E5-38979FB397FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13336885-65AB-48F7-B9E5-38979FB397FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13336885-65AB-48F7-B9E5-38979FB397FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13336885-65AB-48F7-B9E5-38979FB397FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FD145B3-29F9-44B2-915E-9FCED979FD95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD145B3-29F9-44B2-915E-9FCED979FD95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD145B3-29F9-44B2-915E-9FCED979FD95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FD145B3-29F9-44B2-915E-9FCED979FD95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B8AD87C-D603-4373-AEB9-44996B9FF7CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8AD87C-D603-4373-AEB9-44996B9FF7CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8AD87C-D603-4373-AEB9-44996B9FF7CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8AD87C-D603-4373-AEB9-44996B9FF7CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5BD2529-F5E4-4D7B-94AE-2A08DF9CDE35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5BD2529-F5E4-4D7B-94AE-2A08DF9CDE35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5BD2529-F5E4-4D7B-94AE-2A08DF9CDE35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5BD2529-F5E4-4D7B-94AE-2A08DF9CDE35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
