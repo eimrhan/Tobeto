@@ -8,6 +8,7 @@ namespace _2_OOP2
 {
     internal class Product // Entity
     {
+        // Props (Properties)
         public int Id { get; set; }
         public int CategoryId { get; set; } // Foreign Key
         public string Name { get; set; }

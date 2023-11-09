@@ -1,5 +1,6 @@
 ﻿using _2_OOP2;
 
+// class örneği oluşturma (Instance)
 Product product1 = new Product();
 product1.Id = 1;
 product1.CategoryId = 1;
@@ -16,7 +17,16 @@ Product product2 = new Product
     UnitsInStock = 15,
 };
 
+Product[] products = new Product[] { product1, product2 };
+
+foreach (Product product in products)
+{
+    Console.WriteLine(product.Name);
+    Console.WriteLine(product.UnitPrice);
+}
+
 
 ProductManager productManager = new ProductManager();
 productManager.Add(product1);
 productManager.Add(product2);
+// classdan türetilmiş nesne prop olarak gönderildi. (Encapsulation)
