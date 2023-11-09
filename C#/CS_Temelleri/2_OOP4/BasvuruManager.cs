@@ -8,11 +8,14 @@ namespace _2_OOP4
 {
     internal class BasvuruManager
     {
-        public void BasvuruYap(IKrediManager krediManager)
+        // Method Injection
+
+        public void BasvuruYap(IKrediManager krediManager, ILoggerService loggerService)
         {
             /* ...diğer kodlar... */
 
             krediManager.Hesapla();
+            loggerService.Log();
         }
         // üstteki senaryoda müşteri hangi krediyi alacağını bilir ve hesaplamanın harici
         // diğer gerekli kodlarla birlikte BasvuruYap metodu işleme alınır.
@@ -23,6 +26,18 @@ namespace _2_OOP4
         {
             foreach (var kredi in krediler)
                 kredi.Hesapla();
+        }
+
+
+        // birden fazla loglama isteği gönderdiğimiz örnek senaryo için ise bu şekilde bir metot oluşturmamız gerekiyor:
+        internal void BasvuruYap(IKrediManager krediManager, List<ILoggerService> loggerServices)
+        {
+            /* ...diğer kodlar... */
+
+            krediManager.Hesapla();
+
+            foreach (var loggerService in loggerServices)
+                loggerService.Log();
         }
     }
 }
