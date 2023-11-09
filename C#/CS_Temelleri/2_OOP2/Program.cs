@@ -1,5 +1,12 @@
 ﻿using _2_OOP2;
 
+/*************************************************************************
+   2 Tip class örneğinden söz edilebilir:
+   1: Entity (varlık) classları. Tanımlamalar burada yapılır.
+   2: Manager (operayon) classları. Metotlarımızı burada oluştururuz.
+*************************************************************************/
+
+
 // class örneği oluşturma (Instance)
 Product product1 = new Product();
 product1.Id = 1;
