@@ -37,6 +37,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ders8_DegerVeReferansTipler
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2_OOP2", "2_OOP2\2_OOP2.csproj", "{B3D50F11-74D6-4ADB-A1D4-F9953F35CB81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ders8_Collections", "Ders8_Collections\Ders8_Collections.csproj", "{C7F6A2BA-460C-43C0-880D-8BC938E753FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{B3D50F11-74D6-4ADB-A1D4-F9953F35CB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3D50F11-74D6-4ADB-A1D4-F9953F35CB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3D50F11-74D6-4ADB-A1D4-F9953F35CB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7F6A2BA-460C-43C0-880D-8BC938E753FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7F6A2BA-460C-43C0-880D-8BC938E753FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7F6A2BA-460C-43C0-880D-8BC938E753FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7F6A2BA-460C-43C0-880D-8BC938E753FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
