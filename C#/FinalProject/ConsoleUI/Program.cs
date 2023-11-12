@@ -10,6 +10,7 @@
    Soyut nesneler (interface, abstract classlar, base classlar) Abstract klasörleri altında olacak.
    Somut nesneler Concrete klasörlerinde. */
 
+// https://i.imgur.com/zh85O0v.png
 /* ************************************** */
 
 using Business.Concrete;
@@ -19,5 +20,5 @@ ProductManager productManager = new ProductManager(new InMemoryProductDal());
 
 foreach (var product in productManager.GetAll())
 {
-    Console.WriteLine(product.Name);
+    Console.WriteLine(product.ProductName);
 }
