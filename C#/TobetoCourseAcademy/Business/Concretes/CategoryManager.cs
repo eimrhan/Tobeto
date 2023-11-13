@@ -1,4 +1,6 @@
-﻿using DataAccess.Concretes;
+﻿using Business.Abstracts;
+using DataAccess.Abstracts;
+using DataAccess.Concretes;
 using Entites.Concretes;
 using System;
 using System.Collections.Generic;
@@ -8,15 +10,17 @@ using System.Threading.Tasks;
 
 namespace Business.Concretes
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
-        public void Add(Category category)
+        ICategoryDal _categoryDal;
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            // iş kurallarını işlet, geçerse devam eder ve:
-
-            AdoNetCategoryDal categoryDal = new AdoNetCategoryDal();
-            categoryDal.Add(category);
+            _categoryDal = categoryDal;
         }
 
+        public List<Category> GetCategories()
+        {
+            return _categoryDal.GetAll();
+        }
     }
 }

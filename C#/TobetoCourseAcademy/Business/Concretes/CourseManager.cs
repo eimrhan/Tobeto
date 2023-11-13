@@ -1,4 +1,6 @@
-﻿using DataAccess.Concretes;
+﻿using Business.Abstracts;
+using DataAccess.Abstracts;
+using DataAccess.Concretes;
 using Entites.Concretes;
 using System;
 using System.Collections.Generic;
@@ -8,12 +10,27 @@ using System.Threading.Tasks;
 
 namespace Business.Concretes
 {
-    public class CourseManager
+    public class CourseManager : ICourseService
     {
-        public void Add(Course course)
+        ICourseDal _courseDal;
+        public CourseManager(ICourseDal courseDal)
         {
-            AdoNetCourseDal courseDal = new AdoNetCourseDal();
-            courseDal.Add(course);
+            _courseDal = courseDal;
+        }
+
+        public List<Course> GetCourses()
+        {
+            return _courseDal.GetAll();
+        }
+
+        public List<Course> GetCoursesByCategoryId(int categoryId)
+        {
+            return _courseDal.GetAll(p => p.CategoryId == categoryId);
+        }
+
+        public List<Course> GetCoursesByPrice(decimal min, decimal max)
+        {
+            return _courseDal.GetAll(p => p.Price >= min && p.Price <= max);
         }
     }
 }

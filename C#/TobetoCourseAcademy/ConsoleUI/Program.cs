@@ -1,26 +1,30 @@
 ﻿using Business.Concretes;
-using Entites.Concretes;
+using DataAccess.Concretes.EntityFramework;
 
-Category category1 = new Category() { Id = 1, Name = "Programming" };
-CategoryManager categoryManager = new CategoryManager();
-categoryManager.Add(category1);
+CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
-Course course1 = new Course
-{
-    Id = 1,
-    Name = "C#",
-    Desc = "C Sharp",
-    ImgUrl = "img.png",
-    CategoryId = 1,
-    Price = 100,
-};
-CourseManager courseManager = new CourseManager();
-courseManager.Add(course1);
+foreach (var category in categoryManager.GetCategories())
+    Console.WriteLine(category.Name);
+Console.WriteLine("---------------");
 
-Instructor instructor1 = new Instructor { Id = 1, FirstName = "Engin", LastName = "Demiroğ" };
-InstructorManager instructorManager = new InstructorManager();
-instructorManager.Add(instructor1);
 
-CourseInstructor courseInstructor1 = new CourseInstructor { Id = 1, CourseId = 1, InstructorId = 1 };
-CourseInstructorManager courseInstructorManager = new CourseInstructorManager();
-courseInstructorManager.Add(courseInstructor1);
+CourseManager courseManager = new CourseManager(new EfCourseDal());
+
+foreach (var course in courseManager.GetCourses())
+    Console.WriteLine(course.Name);
+Console.WriteLine("---------------");
+
+foreach (var course in courseManager.GetCoursesByCategoryId(2))
+    Console.WriteLine(course.Name);
+Console.WriteLine("---------------");
+
+foreach (var course in courseManager.GetCoursesByPrice(50,100))
+    Console.WriteLine(course.Name);
+Console.WriteLine("---------------");
+
+
+InstructorManager instructorManager = new InstructorManager(new EfInstructorDal());
+
+foreach (var instructor in instructorManager.GetInstructors())
+    Console.WriteLine(instructor.FirstName + ' ' + instructor.LastName);
+Console.WriteLine("---------------");

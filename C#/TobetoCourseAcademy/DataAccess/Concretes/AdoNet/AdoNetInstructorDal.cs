@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Concretes
+namespace DataAccess.Concretes.AdoNet
 {
     public class AdoNetInstructorDal
     {
-        public void Add (Instructor instructor)
+        public void Add(Instructor instructor)
         {
-            Console.WriteLine(instructor.FirstName +" "+ instructor.LastName + " Ado.Net kullanılarak veritabanına eklendi.");
+            Console.WriteLine(instructor.FirstName + " " + instructor.LastName + " Ado.Net kullanılarak veritabanına eklendi.");
         }
     }
 }
