@@ -1,5 +1,6 @@
 ﻿using Core.DataAccess;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,8 @@ namespace DataAccess.Abstract
         // IEntityRepository ile dinamik bir yapı oluşturduk ve
         // her bir obje için ayrı ayrı yapı oluşturmaya gerek kalmadı.
         // IEntityRepository'den kalıtım almak yeterli artık.
+
+
+        List<ProductDetailDto> GetProductDetails();
     }
 }

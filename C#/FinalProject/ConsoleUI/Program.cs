@@ -45,6 +45,11 @@ static void ProductTest()
         Console.WriteLine(product.ProductName);
     }
     Console.WriteLine("--------------");
+
+    foreach (var p in productManager.GetProductDetails())
+    {
+        Console.WriteLine(p.ProductName + " / " + p.CategoryName);
+    }
 }
 Console.WriteLine("********************");
 static void CategoryTest()
