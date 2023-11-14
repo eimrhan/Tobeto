@@ -15,8 +15,9 @@ namespace Business.Concrete
     {
         // Dipnot: "Bir iş sınıfı başka sınıfları new'lemez."
 
-        IProductDal _productDal;
-
+        IProductDal _productDal; // Business katmanı veri erişim katmanına (dal) bağımlı
+        // bağımlılığımızı minimize etmemiz lazım. (belki bir gün o bağ değişir ihtimali)
+        // bağımlılığımızı constructor injection ile yapıyoruz:
         public ProductManager(IProductDal productDal)
         {
             _productDal = productDal;

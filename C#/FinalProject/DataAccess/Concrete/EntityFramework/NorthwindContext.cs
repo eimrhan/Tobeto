@@ -19,9 +19,10 @@ namespace DataAccess.Concrete.EntityFramework
                                      // "\" tırnak içinde \ algılaması için başına @ koyduk.
         }
 
+        // bizim nesnemizim veritabanında hangi tabloya karşılık geldiğini burada belirtiyoruz:
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
-        // bizim nesnemizim veritabanında hangi tabloya karşılık geldiğini burada belirttik.
+        public DbSet<Order> Orders { get; set; }
     }
 }

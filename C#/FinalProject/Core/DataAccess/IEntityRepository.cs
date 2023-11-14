@@ -1,5 +1,13 @@
-﻿using Entities.Abstract;
-using Entities.Concrete;
+﻿// Base classları Core katmanına taşıdık.
+// "Core katmanı diğer katmanları referans almaz"
+// bu yüzden alttaki ref usinglerine gerek kalmadı.
+
+//using Entities.Abstract;
+//using Entities.Concrete;
+
+using Core.Entities;
+// IEntity artık Core.Entities'den geliyor.
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +17,11 @@ using System.Threading.Tasks;
 
 // "İş Classlarını oluştururken, önce onun Interface'ini oluştur. Bunu kural haline getir! (gerek görmesen bile)" 
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess // (Core katmanına taşıdıktan sonra namespace de değişti.)
 {
     // Her entity için tek tek Dal oluşturmak yerine, ortak bir dinamik yapı oluşturabiliriz:
     // (interfaceleri yine oluşturacaksın fakat içlerini ayrı ayrı doldurman gerekmiyor, kalıtım vermen kafi.)
-    public interface IEntityRepository<T> where T:class, IEntity, new() // Generic Constraint
+    public interface IEntityRepository<T> where T : class, IEntity, new() // Generic Constraint
     // :class referans tip olabilir demek (sadece class değil). Fakat her referansı istemiyoruz, bu yüzden ayrıca IEntity koşulunu da ekledik.
     // artık parametre olarak sadece IEntity veya IEntity implemente eden referans tipli nesneleri alabilir. (where T:IEntity yazsak da olur gibi)
     // IEntity almasın, sadece onu implemente eden nesneleri alsın diyorsan bir de koşul olarak new() ekleyebilirsin. (IEntity newlemez çünkü.)
