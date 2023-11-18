@@ -1,4 +1,4 @@
-﻿using Entites.Abstracts;
+﻿using Core.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entites.Concretes
 {
-    public class CourseInstructor:IEntity
+    public class CourseInstructor : IEntity
     {
         public int Id { get; set; }
         public int CourseId { get; set; }

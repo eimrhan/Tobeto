@@ -1,5 +1,7 @@
-﻿using DataAccess.Abstracts;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstracts;
 using Entites.Concretes;
+using Entites.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,51 +12,23 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes.EntityFramework
 {
-    public class EfCourseDal : ICourseDal
+    public class EfCourseDal : EfEntityRepositoryBase<Course, DatabaseContext>, ICourseDal
     {
-        public void Add(Course entity)
+        public List<CourseDetailDto> GetCourseDetails()
         {
-            using (DatabaseContext db = new DatabaseContext())
+            using (DatabaseContext dbContext = new DatabaseContext())
             {
-                var addedEntity = db.Entry(entity);
-                addedEntity.State = EntityState.Added;
-                db.SaveChanges();
-            }
-        }
-
-        public void Delete(Course entity)
-        {
-            using (DatabaseContext db = new DatabaseContext())
-            {
-                var deletedEntity = db.Entry(entity);
-                deletedEntity.State = EntityState.Deleted;
-                db.SaveChanges();
-            }
-        }
-
-        public Course Get(Expression<Func<Course, bool>> filter)
-        {
-            using (DatabaseContext db = new DatabaseContext())
-            {
-                return db.Set<Course>().SingleOrDefault(filter);
-            }
-        }
-
-        public List<Course> GetAll(Expression<Func<Course, bool>> filter = null)
-        {
-            using (DatabaseContext db = new DatabaseContext())
-            {
-                return filter == null ? db.Set<Course>().ToList() : db.Set<Course>().Where(filter).ToList();
-            }
-        }
-
-        public void Update(Course entity)
-        {
-            using (DatabaseContext db = new DatabaseContext())
-            {
-                var updatedEntity = db.Entry(entity);
-                updatedEntity.State = EntityState.Modified;
-                db.SaveChanges();
+                var result = from course in dbContext.Courses
+                             join courseInstructors in dbContext.CoursesInstructors on course.Id equals courseInstructors.CourseId
+                             join instructors in dbContext.Instructors on courseInstructors.InstructorId equals instructors.Id
+                             select new CourseDetailDto
+                             {
+                                 CourseId = course.Id,
+                                 CourseName = course.Name,
+                                 Price = course.Price,
+                                 InstructorName = instructors.FirstName
+                             };
+                return result.ToList();
             }
         }
     }

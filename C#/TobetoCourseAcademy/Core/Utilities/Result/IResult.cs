@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entites.Abstracts
+namespace Core.Utilities.Result
 {
-    public interface IEntity
+    public interface IResult
     {
+        bool IsSuccess { get; }
+        string Message { get; }
     }
 }

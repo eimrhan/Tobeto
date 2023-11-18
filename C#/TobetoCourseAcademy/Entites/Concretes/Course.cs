@@ -1,4 +1,4 @@
-﻿using Entites.Abstracts;
+﻿using Core.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entites.Concretes
 {
-    public class Course:IEntity
+    public class Course : IEntity
     {
         public int Id { get; set; }
         public int CategoryId { get; set; }
@@ -16,6 +16,6 @@ namespace Entites.Concretes
         public string ImgUrl { get; set; }
         public decimal Price { get; set; }
         public Category Category { get; set; }
-        List<CourseInstructor> CourseInstructors { get; set; }
+        public List<CourseInstructor> CourseInstructors { get; set; }
     }
 }

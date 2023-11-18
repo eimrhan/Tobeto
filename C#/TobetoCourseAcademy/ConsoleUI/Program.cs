@@ -1,30 +1,41 @@
 ﻿using Business.Concretes;
 using DataAccess.Concretes.EntityFramework;
 
-CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+Test1();
 
-foreach (var category in categoryManager.GetCategories())
-    Console.WriteLine(category.Name);
-Console.WriteLine("---------------");
+static void Test1()
+{
+    CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
 
-
-CourseManager courseManager = new CourseManager(new EfCourseDal());
-
-foreach (var course in courseManager.GetCourses())
-    Console.WriteLine(course.Name);
-Console.WriteLine("---------------");
-
-foreach (var course in courseManager.GetCoursesByCategoryId(2))
-    Console.WriteLine(course.Name);
-Console.WriteLine("---------------");
-
-foreach (var course in courseManager.GetCoursesByPrice(50,100))
-    Console.WriteLine(course.Name);
-Console.WriteLine("---------------");
+    foreach (var category in categoryManager.GetCategories())
+        Console.WriteLine(category.Name);
+    Console.WriteLine("---------------");
 
 
-InstructorManager instructorManager = new InstructorManager(new EfInstructorDal());
+    InstructorManager instructorManager = new InstructorManager(new EfInstructorDal());
 
-foreach (var instructor in instructorManager.GetInstructors())
-    Console.WriteLine(instructor.FirstName + ' ' + instructor.LastName);
-Console.WriteLine("---------------");
+    foreach (var instructor in instructorManager.GetInstructors())
+        Console.WriteLine(instructor.FirstName + ' ' + instructor.LastName);
+    Console.WriteLine("---------------");
+
+
+    CourseManager courseManager = new CourseManager(new EfCourseDal());
+
+    foreach (var course in courseManager.GetCourses().Data)
+        Console.WriteLine(course.Name);
+    Console.WriteLine("---------------");
+
+    foreach (var course in courseManager.GetCoursesByCategoryId(2).Data)
+        Console.WriteLine(course.Name);
+    Console.WriteLine("---------------");
+
+    foreach (var course in courseManager.GetCoursesByPrice(50, 100).Data)
+        Console.WriteLine(course.Name);
+    Console.WriteLine("---------------");
+
+
+    var result = courseManager.GetCourseDetails();
+
+    foreach (var item in result.Data)
+        Console.WriteLine(item.CourseName + " / " + item.InstructorName);
+}

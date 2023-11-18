@@ -1,7 +1,10 @@
 ﻿using Business.Abstracts;
+using Business.Constants;
+using Core.Utilities.Result;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
 using Entites.Concretes;
+using Entites.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,19 +21,34 @@ namespace Business.Concretes
             _courseDal = courseDal;
         }
 
-        public List<Course> GetCourses()
+        public IResult Add(Course course)
         {
-            return _courseDal.GetAll();
+            if (course.Name.Length < 2)
+            {
+                return new ErrorResult(Messages.CourseNameInvalid);
+            }
+            _courseDal.Add(course);
+            return new SuccessResult(Messages.CourseAdded);
         }
 
-        public List<Course> GetCoursesByCategoryId(int categoryId)
+        public IDataResult<List<CourseDetailDto>> GetCourseDetails()
         {
-            return _courseDal.GetAll(p => p.CategoryId == categoryId);
+            return new SuccessDataResult<List<CourseDetailDto>>(_courseDal.GetCourseDetails());
         }
 
-        public List<Course> GetCoursesByPrice(decimal min, decimal max)
+        public IDataResult<List<Course>> GetCourses()
         {
-            return _courseDal.GetAll(p => p.Price >= min && p.Price <= max);
+            return new SuccessDataResult<List<Course>>(_courseDal.GetAll());
+        }
+
+        public IDataResult<List<Course>> GetCoursesByCategoryId(int categoryId)
+        {
+            return new SuccessDataResult<List<Course>>(_courseDal.GetAll(p => p.CategoryId == categoryId));
+        }
+
+        public IDataResult<List<Course>> GetCoursesByPrice(decimal min, decimal max)
+        {
+            return new SuccessDataResult<List<Course>>(_courseDal.GetAll(p => p.Price >= min && p.Price <= max));
         }
     }
 }
