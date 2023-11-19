@@ -17,8 +17,9 @@ using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 
-ProductTest();
-CategoryTest();
+//ProductTest();
+//CategoryTest();
+ResultTest();
 
 static void ProductTest()
 {
@@ -28,30 +29,31 @@ static void ProductTest()
 
     ProductManager productManager = new ProductManager(new EfProductDal());
 
-    foreach (var product in productManager.GetAll())
+    foreach (var product in productManager.GetAll().Data)
     {
         Console.WriteLine(product.ProductName);
     }
     Console.WriteLine("--------------");
 
-    foreach (var product in productManager.GetAllByCategoryID(2))
+    foreach (var product in productManager.GetAllByCategoryID(2).Data)
     {
         Console.WriteLine(product.ProductName);
     }
     Console.WriteLine("--------------");
 
-    foreach (var product in productManager.GetByUnitPrice(50, 100))
+    foreach (var product in productManager.GetByUnitPrice(50, 100).Data)
     {
         Console.WriteLine(product.ProductName);
     }
     Console.WriteLine("--------------");
 
-    foreach (var p in productManager.GetProductDetails())
+    foreach (var p in productManager.GetProductDetails().Data)
     {
         Console.WriteLine(p.ProductName + " / " + p.CategoryName);
     }
+
+    Console.WriteLine("********************");
 }
-Console.WriteLine("********************");
 static void CategoryTest()
 {
     CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
@@ -62,5 +64,23 @@ static void CategoryTest()
 
     var c = categoryManager.GetById(2);
     Console.WriteLine(c.CategoryName);
+
+    Console.WriteLine("********************");
 }
-Console.WriteLine("********************");
+
+static void ResultTest()
+{
+    ProductManager productManager = new ProductManager(new EfProductDal());
+
+    var result = productManager.GetProductDetails();
+
+    if (result.IsSuccess)
+    {
+        foreach (var product in result.Data)
+            Console.WriteLine(product.ProductName + " / " + product.CategoryName);
+    }
+    else
+    {
+        Console.WriteLine(result.Message);
+    }
+}
