@@ -31,6 +31,17 @@ namespace Business.Concretes
             return new SuccessResult(Messages.CourseAdded);
         }
 
+        public IResult Delete(Course course)
+        {
+            _courseDal.Delete(course);
+            return new SuccessResult(Messages.CourseDeleted);
+        }
+
+        public IDataResult<Course> GetByCourseId(int courseId)
+        {
+            return new SuccessDataResult<Course>(_courseDal.Get(p => p.Id == courseId));
+        }
+
         public IDataResult<List<CourseDetailDto>> GetCourseDetails()
         {
             return new SuccessDataResult<List<CourseDetailDto>>(_courseDal.GetCourseDetails());
@@ -49,6 +60,12 @@ namespace Business.Concretes
         public IDataResult<List<Course>> GetCoursesByPrice(decimal min, decimal max)
         {
             return new SuccessDataResult<List<Course>>(_courseDal.GetAll(p => p.Price >= min && p.Price <= max));
+        }
+
+        public IResult Update(Course course)
+        {
+            _courseDal.Update(course);
+            return new SuccessResult(Messages.CourseUpdated);
         }
     }
 }

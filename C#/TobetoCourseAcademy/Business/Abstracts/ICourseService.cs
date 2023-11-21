@@ -12,9 +12,12 @@ namespace Business.Abstracts
     public interface ICourseService
     {
         IDataResult<List<Course>> GetCourses();
+        IDataResult<Course> GetByCourseId(int courseId); // ?
         IDataResult<List<Course>> GetCoursesByCategoryId(int categoryId);
         IDataResult<List<Course>> GetCoursesByPrice(decimal min, decimal max);
         IDataResult<List<CourseDetailDto>> GetCourseDetails();
         IResult Add(Course course);
+        IResult Update(Course course);
+        IResult Delete(Course course);
     }
 }

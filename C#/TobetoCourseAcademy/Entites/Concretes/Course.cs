@@ -17,5 +17,10 @@ namespace Entites.Concretes
         public decimal Price { get; set; }
         public Category Category { get; set; }
         public List<CourseInstructor> CourseInstructors { get; set; }
+
+        public override string ToString()
+        {
+            return Id + " " + CategoryId + " " + Name + " " + Desc + " " + " " + Price + " ";
+        }
     }
 }
