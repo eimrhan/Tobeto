@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+// using System.ComponentModel.DataAnnotations;
+// bunu eklerse sil. yoksa hata veriyor.
 
 namespace Core.CrossCuttingConcerns.Validation
 {
