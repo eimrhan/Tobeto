@@ -1,5 +1,7 @@
 ﻿using Business.Abstracts;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Result;
 using DataAccess.Abstracts;
 using DataAccess.Concretes;
@@ -23,10 +25,8 @@ namespace Business.Concretes
 
         public IResult Add(Course course)
         {
-            if (course.Name.Length < 2)
-            {
-                return new ErrorResult(Messages.CourseNameInvalid);
-            }
+            ValidationTool.Validate(new CourseValidator(), course);
+
             _courseDal.Add(course);
             return new SuccessResult(Messages.CourseAdded);
         }
