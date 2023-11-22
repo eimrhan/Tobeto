@@ -15,8 +15,8 @@ namespace Entites.Concretes
         public string Desc { get; set; }
         public string ImgUrl { get; set; }
         public decimal Price { get; set; }
-        public Category Category { get; set; }
-        public List<CourseInstructor> CourseInstructors { get; set; }
+        public Category? Category { get; set; }
+        public List<CourseInstructor>? CourseInstructors { get; set; }
 
         public override string ToString()
         {
