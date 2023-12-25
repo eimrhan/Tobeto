@@ -1,10 +1,11 @@
-import CartSummary from 'components/ProductCard/CartSummary'
+import CartSummary from 'components/Cart/CartSummary'
 import React from 'react'
 import { Nav, Navbar, NavDropdown, Container, Form, Button } from 'react-bootstrap'
+import './Navbar.css'
 
 const NavBar = () => {
 	return (
-    <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
+    <Navbar expand="lg" className="navbar bg-body-tertiary" data-bs-theme="dark">
       <Container /* fluid */>
         <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -33,7 +34,9 @@ const NavBar = () => {
             />
             <Button variant="outline-success">Search</Button>
           </Form>
-					<Nav><CartSummary /></Nav>
+					<Nav>
+						<CartSummary />
+					</Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

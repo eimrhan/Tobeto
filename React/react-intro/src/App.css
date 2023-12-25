@@ -4,27 +4,3 @@
   color: white;
   min-height: 100vh;
 }
-
-NavBar {
-  font-size: calc(10px + 2vmin);
-}
-
-Card {
-	height: 350px;
-}
-
-.card-title {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-.card-text {
-	overflow: hidden;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 2;
-}
-.card-image {
-	aspect-ratio: 1/1;
-	object-fit: contain;
-}

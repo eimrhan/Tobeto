@@ -1,10 +1,10 @@
 import React from 'react'
-import Categories from '../CategoryList/Categories'
-import NavBar from '../Navbar'
+import Categories from '../../components/CategoryList/Categories'
+import NavBar from '../../components/Navbar/NavBar'
 import ProductList from 'pages/Products/ProductList'
 import { Container, Row, Col } from 'react-bootstrap'
 
-export const Dashboard = () => {
+export const Homepage = () => {
 	return (
 		<>
 			<NavBar />
@@ -14,7 +14,7 @@ export const Dashboard = () => {
 						<Categories />
 					</Col>
 					<Col lg={10} sm={9}>
-							<ProductList />
+						<ProductList />
 					</Col>
 				</Row>
 			</Container>
