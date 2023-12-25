@@ -1,4 +1,5 @@
 .category-list {
 	color: gainsboro !important;
 	text-decoration: none;
+	float: left;
 }
