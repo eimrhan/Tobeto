@@ -2,9 +2,7 @@ import React from 'react'
 import Categories from '../CategoryList/Categories'
 import NavBar from '../Navbar'
 import ProductList from 'pages/Products/ProductList'
-import { Container } from 'react-bootstrap'
-import { Row } from 'react-bootstrap'
-import { Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 
 export const Dashboard = () => {
 	return (
@@ -12,11 +10,11 @@ export const Dashboard = () => {
 			<NavBar />
 			<Container >
 				<Row className='mt-5'>
-					<Col sm={3}>
+					<Col lg={2} sm={3}>
 						<Categories />
 					</Col>
-					<Col lg={9}>
-						<ProductList />
+					<Col lg={10} sm={9}>
+							<ProductList />
 					</Col>
 				</Row>
 			</Container>
