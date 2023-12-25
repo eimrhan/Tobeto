@@ -5,7 +5,7 @@ import './Navbar.css'
 
 const NavBar = () => {
 	return (
-    <Navbar expand="lg" className="navbar bg-body-tertiary" data-bs-theme="dark">
+    <Navbar expand="lg" className="navbar bg-body-tertiary" data-bs-theme="dark" sticky="top">
       <Container /* fluid */>
         <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />

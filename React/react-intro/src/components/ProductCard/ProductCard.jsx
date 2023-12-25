@@ -1,13 +1,16 @@
 import React from 'react'
 import { Card, ListGroup, Button } from 'react-bootstrap'
 import './ProductCard.css'
+import { Link } from 'react-router-dom'
 
 const ProductCard = (props) => {
 	return (
 		<Card data-bs-theme="dark" className='mb-3'>
 			<Card.Img className='card-image' variant="top" src={props.product.thumbnail} />
 			<Card.Body>
-				<Card.Header className='card-title'>{props.product.title}</Card.Header>
+				<Link className='card-link' to={'/products?id=' + props.product.id}>
+					<Card.Header className='card-title'>{props.product.title}</Card.Header>
+				</Link>
 				<Card.Text className='card-text'>{props.product.description}</Card.Text>
 			</Card.Body>
 			<ListGroup className="list-group-flush">
@@ -19,6 +22,7 @@ const ProductCard = (props) => {
 				{/* <Button variant="danger">Delete</Button> */}
 			</Card.Body>
 		</Card>
+
 	)
 }
 
