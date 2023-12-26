@@ -10,7 +10,7 @@ const AddProduct = () => {
 	const [product, setProduct] = useState({
 		title: '',
 		description: '',
-		price: 0,
+		price: '',
 		files: []
 	});
 
