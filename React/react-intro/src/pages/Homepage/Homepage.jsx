@@ -1,6 +1,5 @@
 import React from 'react'
 import Categories from '../../components/CategoryList/Categories'
-import NavBar from '../../components/Navbar/NavBar'
 import ProductList from 'pages/Products/ProductList'
 import { Container, Row, Col } from 'react-bootstrap'
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, ListGroup, Button } from 'react-bootstrap'
 import './ProductCard.css'
 import { Link } from 'react-router-dom'
+import DeleteProduct from 'services/DeleteProduct'
 
 const ProductCard = (props) => {
 	return (
@@ -18,11 +19,12 @@ const ProductCard = (props) => {
 				{/* <ListGroup.Item>{product.rating}</ListGroup.Item> */}
 			</ListGroup>
 			<Card.Body>
-				<Button variant="primary">Add to Cart</Button>
-				{/* <Button variant="danger">Delete</Button> */}
+				<Link to={'/products/' + props.product.id}>
+					<Button className='card-button' variant="primary">Details</Button>
+				</Link> 
+				<DeleteProduct product={props.product} />
 			</Card.Body>
 		</Card>
-
 	)
 }
 
