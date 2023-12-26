@@ -7,9 +7,8 @@ import { Container, Row, Col } from 'react-bootstrap'
 export const Homepage = () => {
 	return (
 		<>
-			<NavBar />
-			<Container >
-				<Row className='mt-5'>
+			<Container>
+				<Row>
 					<Col lg={2} sm={3}>
 						<Categories />
 					</Col>

@@ -8,7 +8,7 @@ const ProductCard = (props) => {
 		<Card data-bs-theme="dark" className='mb-3'>
 			<Card.Img className='card-image' variant="top" src={props.product.thumbnail} />
 			<Card.Body>
-				<Link className='card-link' to={'/products?id=' + props.product.id}>
+				<Link className='card-link' to={'/products/' + props.product.id}> {/* /products?id= */}
 					<Card.Header className='card-title'>{props.product.title}</Card.Header>
 				</Link>
 				<Card.Text className='card-text'>{props.product.description}</Card.Text>

@@ -14,7 +14,7 @@ const Categories = () => {
 	}, [])
 
 	return (
-		<ListGroup data-bs-theme="dark" className='mb-5'>
+		<ListGroup data-bs-theme="dark" className='mt-5 mb-5'>
 			{categories.map((category, id) => (
 				<ListGroup.Item key={id}>
 					<Link to={'/'} className='category-list'>{category}</Link>
