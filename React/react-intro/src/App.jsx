@@ -8,10 +8,10 @@ import ProductDetail from 'pages/Products/ProductDetail';
 import NavBar from 'components/Navbar/NavBar';
 
 function App() {
-  return (
-    <div className="App">
-			<NavBar />
+	return (
+		<div className="App">
 			<BrowserRouter>
+				<NavBar />
 				<Routes>
 					<Route path="/" element={<Homepage />}></Route>
 					<Route path='/products' element={<ProductList />}></Route>
@@ -19,8 +19,8 @@ function App() {
 					<Route path="*" element={<div>404: Not Found</div>}></Route>
 				</Routes>
 			</BrowserRouter>
-    </div>
-  );
+		</div>
+	);
 }
 
 export default App;
