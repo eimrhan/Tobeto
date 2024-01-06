@@ -1,15 +1,15 @@
-import axios from 'axios';
 import ProductCard from 'components/ProductCard/ProductCard';
 import React, { useEffect, useState } from 'react'
 import { Container, Col, Row } from 'react-bootstrap'
+import ProductService from 'services/productService';
 
 const ProductList = () => {
 
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		axios("https://dummyjson.com/products")
-			.then(res => setProducts(res.data.products))
+		let productService = new ProductService()
+		productService.getProducts().then(res => setProducts(res.data.products))
 	}, []);
 
 	return (

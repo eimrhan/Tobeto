@@ -1,16 +1,16 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Category.css'
+import CategoryService from 'services/categoryService'
 
 const Categories = () => {
 
 	const [categories, setCategories] = useState([])
 
 	useEffect(() => {
-		axios("https://dummyjson.com/products/categories")
-			.then(res => setCategories(res.data));
+		let categoryService = new CategoryService()
+		categoryService.getCategories().then(res => setCategories(res.data));
 	}, [])
 
 	return (
