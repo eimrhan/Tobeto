@@ -10,18 +10,25 @@ const initialState = {
 export default function cartReducer(state = initialState, { type, payload }) {
 	switch (type) {
 		case ADD_TO_CART:
-			let product = state.cartItems.find(c => (c.product.id === payload.id))
+			let product = state.cartItems.find(c =>
+				// (c.product.id === payload.id)
+				console.log('Product:', c.product)
+			)
+			console.log(product) // problem var. product undefined dönüyor
+			// payload tıkladığım ürünü getiriyor fakat product bir önceki veriyi dönüyor.
+			console.log('Payload:', payload);
+			console.log('Cart Items:', state.cartItems);
+
 			if (product) {
 				product.quantity++
 				return {
-					...state,
-					cartItems: [...state.cartItems]
+					...state
 				}
 			}
 			else {
 				return {
 					...state,
-					cartItems: [...state.cartItems, {quantity:1 , product:payload}]
+					cartItems: [...state.cartItems, { quantity: 1, product: payload }]
 				}
 			}
 		case REMOVE_FROM_CART:
