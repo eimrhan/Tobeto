@@ -2,15 +2,16 @@ import React from 'react'
 import { NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { selectCartItems } from 'store/reducers/cartReducer'
 
 const CartSummary = () => {
 
-	const cartItems = useSelector(state => state.cart)
+	const cartItems = useSelector(selectCartItems)
 
 	return (
 		<NavDropdown title="🛒 Cart" id="navbarScrollingDropdown">
-			{cartItems?.map((item, index) => (
-				<NavDropdown.Item key={index}>
+			{cartItems?.map(item => (
+				<NavDropdown.Item key={item.product.id}>
 					[{item.quantity}x] {item.product.productName}
 				</NavDropdown.Item>
 			))}

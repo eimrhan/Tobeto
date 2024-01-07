@@ -5,8 +5,12 @@ import './Navbar.css'
 import SignedIn from 'components/Logins/SignedIn'
 import SignedOut from 'components/Logins/SignedOut'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { selectCartItems } from 'store/reducers/cartReducer'
 
 const NavBar = () => {
+
+	const cartItems = useSelector(selectCartItems)
 
 	const [isAuthenticated, setIsAuthenticated] = useState(false)
 
@@ -41,7 +45,7 @@ const NavBar = () => {
             <Button variant="outline-success">Search</Button>
           </Form>
 					<Nav className="nav-link" to="/products">
-						<CartSummary />
+						{ cartItems.length>0 && <CartSummary /> }
 					</Nav>
 					{ isAuthenticated ? <SignedIn setIsAuthenticated={setIsAuthenticated} /> : <SignedOut setIsAuthenticated={setIsAuthenticated} /> }
         </Navbar.Collapse>

@@ -1,7 +1,7 @@
-import React from 'react'
-import { Card, ListGroup, Button } from 'react-bootstrap'
+import { Card, ListGroup } from 'react-bootstrap'
 import './ProductCard.css'
 import { Link } from 'react-router-dom'
+import AddToCart from './AddToCart'
 
 const ProductCard = (props) => {
 	return (
@@ -18,7 +18,7 @@ const ProductCard = (props) => {
 				{/* <ListGroup.Item>{product.rating}</ListGroup.Item> */}
 			</ListGroup>
 			<Card.Body>
-				<Button variant="primary">Add to Cart</Button>
+				<AddToCart product={props.product} />
 			</Card.Body>
 		</Card>
 
