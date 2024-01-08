@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -12,7 +11,7 @@ const CartSummary = () => {
 		<NavDropdown title="🛒 Cart" id="navbarScrollingDropdown">
 			{cartItems?.map(item => (
 				<NavDropdown.Item key={item.product.id}>
-					[{item.quantity}x] {item.product.productName}
+					[{item.quantity}x] {item.product.title}
 				</NavDropdown.Item>
 			))}
 			{/* <NavDropdown.Divider /> */}
