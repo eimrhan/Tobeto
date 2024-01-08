@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom"
@@ -7,6 +6,7 @@ import ProductList from 'pages/Products/ProductList';
 import ProductDetail from 'pages/Products/ProductDetail';
 import NavBar from 'components/Navbar/NavBar';
 import CartDetail from 'pages/Cart/CartDetail';
+import AddProduct from 'pages/Products/AddProduct';
 
 function App() {
 	return (
@@ -16,6 +16,7 @@ function App() {
 				<Route path="/" element={<Homepage />}></Route>
 				<Route path='/products' element={<ProductList />}></Route>
 				<Route path='/products/:id' element={<ProductDetail />}></Route>
+				<Route path='/products/add' element={<AddProduct />}></Route>
 				<Route path='/cart_detail' element={<CartDetail />}></Route>
 				<Route path="*" element={<div>404: Not Found</div>}></Route>
 			</Routes>
