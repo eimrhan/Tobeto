@@ -17,6 +17,8 @@ const AddProduct = () => {
 		price: yup.number().required().min(0).max(999999, "milyonluk ürün satamazsın burada")
 	})
 
+	//* Devam Edecek...
+
 	return (
 		<Container data-bs-theme="dark" className='mt-5' style={{ width: "50%" }}>
 			<Formik
@@ -51,7 +53,6 @@ const AddProduct = () => {
 				</Form>
 			</Formik>
 		</Container>
-
 	)
 }
 
