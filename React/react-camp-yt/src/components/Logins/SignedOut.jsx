@@ -8,8 +8,8 @@ const SignedOut = ({setIsAuthenticated}) => {
 	}
 
 	return (
-		<div>
-			<Button variant="success" className='me-2 ms-2' onClick={handleSignIn}>Log In</Button>
+		<div className='d-flex align-items-center'>
+			<Button variant="success" className='me-2 ms-2' onClick={handleSignIn}>Login</Button>
 			<Button variant="primary">Register</Button>
 		</div>
 	)
