@@ -1,8 +1,8 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Container, Card, ListGroup, Carousel, Image } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import './ProductDetail.css'
+import ProductService from 'services/productService';
 
 const ProductDetail = () => {
 
@@ -11,10 +11,9 @@ const ProductDetail = () => {
 	const [productDetail, setProductDetail] = useState({});
 
 	useEffect(() => {
-		axios("https://dummyjson.com/products/" + id)
-			.then(res => setProductDetail(res.data))
-	}, []);
-	console.log(productDetail);
+		let productService = new ProductService()
+		productService.getProductById(id).then(res => setProductDetail(res.data))
+	}, [id]);
 
 	return (
 		<Container className='mt-5' data-bs-theme="dark">
@@ -24,7 +23,7 @@ const ProductDetail = () => {
 				<Carousel>
 					{productDetail && productDetail.images && productDetail.images.map((image, index) => (
 						<Carousel.Item key={index}>
-							<Image src={image} fluid />
+							<Image src={image} fluid className='product-image'/>
 						</Carousel.Item>
 					))}
 				</Carousel>      

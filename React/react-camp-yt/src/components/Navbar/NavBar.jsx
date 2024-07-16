@@ -17,7 +17,7 @@ const NavBar = () => {
 	return (
 		<Navbar expand="lg" className="navbar bg-body-tertiary" data-bs-theme="dark" sticky="top">
 			<Container /* fluid */>
-				<Navbar.Brand href="#">Tobeto</Navbar.Brand>
+				<Navbar.Brand href="#">E-Commerce Template</Navbar.Brand>
 				<Navbar.Toggle aria-controls="navbarScroll" />
 				<Navbar.Collapse id="navbarScroll">
 					<Nav

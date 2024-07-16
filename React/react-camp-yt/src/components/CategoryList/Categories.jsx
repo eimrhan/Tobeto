@@ -18,7 +18,7 @@ const Categories = () => {
 			<ListGroup.Item variant="primary">Categories</ListGroup.Item>
 			{categories.map((category, id) => (
 				<ListGroup.Item key={id}>
-					<Link to={'/'} className='category-list'>{category}</Link>
+					<Link to={'/'} className='category-list'>{category.name}</Link>
 				</ListGroup.Item>
 			))}
 		</ListGroup>

@@ -1,3 +1,7 @@
 .link {
 	margin: 1em;
 }
+
+.product-image {
+	max-width: 500px;
+}

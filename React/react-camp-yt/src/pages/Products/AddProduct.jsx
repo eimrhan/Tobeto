@@ -1,5 +1,5 @@
 import './AddProduct.css'
-import { Formik, Form, Field } from 'formik'
+import { Formik, Form } from 'formik'
 import * as yup from 'yup'
 import { Container, InputGroup, Button, FormLabel, FormGroup, FormControl } from 'react-bootstrap';
 
